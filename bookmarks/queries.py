@@ -130,6 +130,11 @@ def _base_bookmarks_query(
                 Bookmark.objects.filter(id=OuterRef("id"), tags__name__iexact=term)
             )
 
+        if profile.tag_search == UserProfile.TAG_SEARCH_PARTIAL:
+            conditions = conditions | Exists(
+                Bookmark.objects.filter(id=OuterRef("id"), tags__name__icontains=term)
+            )
+
         query_set = query_set.filter(conditions)
 
     for tag_name in query["tag_names"]:

@@ -396,9 +396,11 @@ class UserProfile(models.Model):
     ]
     TAG_SEARCH_STRICT = "strict"
     TAG_SEARCH_LAX = "lax"
+    TAG_SEARCH_PARTIAL = "partial"
     TAG_SEARCH_CHOICES = [
         (TAG_SEARCH_STRICT, "Strict"),
         (TAG_SEARCH_LAX, "Lax"),
+        (TAG_SEARCH_PARTIAL, "Partial"),
     ]
     TAG_GROUPING_ALPHABETICAL = "alphabetical"
     TAG_GROUPING_DISABLED = "disabled"
